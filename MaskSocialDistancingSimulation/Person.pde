@@ -1,6 +1,7 @@
 class Person{
   float x;
   float y;
+  float infectionRate = 1000; // 500 is basic, but 1000 is mask
   
   String type;
   /*
@@ -77,11 +78,11 @@ class Person{
   }
   
   void infect(){
-    float num = random(0,500);
+    float num = random(0,infectionRate);
     if (num < 1){
       if (this.type.equals("n")){
         this.type = "i";
-        BasicSimulation.totalInfected++;
+        MaskSocialDistancingSimulation.totalInfected++;
       }
     }
   }

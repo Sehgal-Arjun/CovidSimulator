@@ -81,7 +81,7 @@ class Person{
     if (num < 1){
       if (this.type.equals("n")){
         this.type = "i";
-        BasicSimulation.totalInfected++;
+        SocialDistancingSimulation.totalInfected++;
       }
     }
   }

@@ -5,7 +5,7 @@ int amountInfected = 1;
 public static float totalInfected = 0;
 
 void setup(){
-  size(800,800);
+  size(1000,1000);
   for (int i = 0; i < people.length; i++){
     people[i] = new Person();
   }
@@ -34,6 +34,20 @@ void draw(){
       
       if (count != 0){
         for (int j = 0; j < i; j++){
+          
+          if (people[j].getX() - people[i].getX() <= 60 && people[j].getX() - people[i].getX() > 0){
+            people[j].x = people[j].x + 0.0001;
+          }
+          if (people[i].getX() - people[j].getX() < 0 && people[i].getX()-people[j].getX() >= -60){
+            people[j].x = people[j].x - 0.0001;
+          }
+          if (people[j].getY() - people[i].getY() <= 100 && people[j].getY() - people[i].getY() > 0){
+            people[j].y = people[j].y - 0.001;
+          }
+          if (people[i].getY() - people[j].getY() < 0 && people[i].getY() - people[j].getY() >= -100){
+            people[j].y = people[j].y + 0.001;
+          }
+          
           if (people[j].getType().equals("i")){
             if (abs(people[j].getX() - people[i].getX()) <= 1 || abs(people[j].getY() - people[i].getY()) <= 60){
               people[i].infect();
